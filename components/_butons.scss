@@ -1,0 +1,49 @@
+.btn {
+  display: inline-block;
+  background-color: rgb(246, 143, 28);
+  font-size: 1.6rem;
+  font-family: inherit;
+  font-weight: 500;
+  border: none;
+  padding: 1.25rem 4.5rem;
+  border-radius: 10rem;
+  cursor: pointer;
+  transition: all 0.3s;
+
+  &:hover {
+    background-color: $color-primary-darker;
+  }
+
+  &--text {
+    display: inline-block;
+    background: none;
+    font-size: 2rem;
+    font-family: inherit;
+    font-weight: 300;
+    color: $color-primary;
+    border: none;
+    border-bottom: 1px solid currentColor;
+    padding-bottom: 2px;
+    cursor: pointer;
+    transition: all 0.3s;
+    height: 7rem;
+    position: absolute;
+    top: 45rem;
+    grid-column: 1/2;
+    grid-row: 1/1;
+    @include respond(phone) {
+      //<600px
+      grid-column: 1/1;
+      grid-row: 2/2;
+      font-size: 1.5rem;
+      left: 40rem;
+      backface-visibility: hidden;
+      
+    }
+  }
+}
+
+/* This is BAD for accessibility! Don't do in the real world! */
+button:focus {
+  outline: none;
+}

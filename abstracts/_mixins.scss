@@ -1,0 +1,50 @@
+@mixin absCenter {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+
+
+//media query
+
+//0-600   Phone
+//600-900 Tablet portrait
+//900-1200 Tablet landscape
+
+//1800+ Big desktop
+
+// brakpoints argument:
+// -phone
+// -tab-port
+// -tab-lend
+// -big-desk
+
+
+
+//Order: base+ typography -> general layout -> grid + page layout -> components
+//1em=16px
+
+@mixin respond($brackpoint) {
+  @if $brackpoint == phone {
+    @media (max-width: 37.5em) {   //<600px
+      @content;
+    }
+  }
+  @if $brackpoint == tab-port {
+    @media (max-width: 56.25em) {  //<900px
+      @content;
+    }
+  }
+  @if $brackpoint == tab-lend {
+    @media (max-width: 75em) {   //<1200px
+      @content;
+    }
+  }
+  @if $brackpoint == big-desk {
+    @media (min-width: 112.5em) { //<+1800px
+      @content;
+    }
+  }
+}

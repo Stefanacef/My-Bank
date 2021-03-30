@@ -1,0 +1,62 @@
+/* NAVIGATION */
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 9rem;
+  width: 100%;
+  padding: 0 6rem;
+  z-index: 100;
+
+  &__logo {
+    height: 6rem;
+    margin-left: 7.4rem;
+    transition: all 0.3s;
+  }
+
+  &__links {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    margin-right: 3rem;
+  }
+
+  &__item {
+    margin-left: 4rem;
+    color: #ffff;
+  }
+  &__link:link,
+  &__link:visited {
+    font-size: 1.7rem;
+    font-weight: 400;
+    color: inherit;
+    text-decoration: none;
+    display: block;
+    transition: all 0.3s;
+  }
+}
+
+/* nav and stickly class at the same time */
+.nav.sticky {
+  position: fixed;
+  background-color: rgba(61, 60, 60, 0.95);
+}
+
+.menu {
+  display: none;
+}
+
+.nav__link--btn:link,
+.nav__link--btn:visited {
+  padding: 0.8rem 2.5rem;
+  border-radius: 3rem;
+  background-color: $color-primary;
+  color: #ffff;
+}
+
+.nav__link--btn:hover,
+.nav__link--btn:active {
+  color: inherit;
+  background-color: $color-primary-darker;
+  color: #ffff;
+}

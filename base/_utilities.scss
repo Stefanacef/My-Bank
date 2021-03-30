@@ -1,0 +1,24 @@
+img {
+  transition: filter 0.5s;
+}
+
+.lazy-img {
+  filter: blur(20px);
+}
+
+/* COOKIE MESSAGE */
+.cookie-message {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 100%;
+  background-color: white;
+  color: #181922;
+  font-size: 1.5rem;
+  font-weight: 400;
+}
+
+.hidden {
+  display: none;
+  visibility: 0;
+}
