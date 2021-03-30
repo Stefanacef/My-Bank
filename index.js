@@ -32,8 +32,7 @@ const closeModal = function () {
   overlay.classList.add('hidden');
 };
 btnsOpenModal.forEach(btn => btn.addEventListener('click', openModal));
-// for (let i = 0; i < btnsOpenModal.length; i++)
-//   btnsOpenModal[i].addEventListener('click', openModal);
+
 
 btnCloseModal.addEventListener('click', closeModal);
 overlay.addEventListener('click', closeModal);
@@ -50,17 +49,7 @@ btnScrolToo.addEventListener('click', (e) =>{
   const s1coords=section1.getBoundingClientRect();
   console.log(s1coords);
 
-//window.scrollTo(s1coords.left + window.pageYOffset, s1coords.top + window.pageYOffset);
 
-
-// ///woaaaa old school
-// window.scrollTo({
-// left: s1coords.left + window.pageYOffset,
-// top: s1coords.top + window.pageYOffset,
-// behavior: 'smooth',
-// })
-
-///mult mai usorrr!!!!
 section1.scrollIntoView({
     behavior:'smooth',})
 })
@@ -68,20 +57,9 @@ section1.scrollIntoView({
 
 //page navigation
 
-// document.querySelectorAll('.nav__link').forEach( (el)=>{
-//     el.addEventListener('click',(e) =>{
-//         e.preventDefault();
 
-//         const id = el.getAttribute('href');
-//         console.log(id);
-//         document.querySelector(id).scrollIntoView({
-//           behavior: 'smooth'
-//         })
-//     })
-// });
 
-// 1 Add event listener to common parent element
-//determine wath element originated the vent
+
 
 document.querySelector('.nav__links').addEventListener('click',(e) =>{
   e.preventDefault();
@@ -98,14 +76,7 @@ document.querySelector('.nav__links').addEventListener('click',(e) =>{
 })
 //tabbed component
 
-
-//pentru pagini scurte
-// tabs.forEach(t=>{
-//   t.addEventListener('click',()=>console.log('tab'))
-// })
-
 tabsContainer.addEventListener('click', function(e){
-  //closest gaseste elementul ca clasa accea care este cem mai apropiat
  const clicked = e.target.closest('.Options__tab');
 
 
@@ -120,8 +91,6 @@ tabsContent.forEach(c => c.classList.remove('Options__content--active'));
 
 document.querySelector(`.Options__content--${clicked.dataset.tab}`)
 .classList.add('Options__content--active')
-
-
 })
 
 
@@ -129,7 +98,6 @@ document.querySelector(`.Options__content--${clicked.dataset.tab}`)
 //menu fade animation
 
 const handleHover = function (e, op){
-  // console.log(this);
   if(e.target.classList.contains('nav__link')){
     const link = e.target;
     const siblings = link.closest('.nav').querySelectorAll('.nav__link');
@@ -145,29 +113,18 @@ const handleHover = function (e, op){
 
 }
 
- nav.addEventListener('mouseover',handleHover.bind(0.5) 
- //(e) =>{
- //handleHover(e,0.5);
+ nav.addEventListener('mouseover',handleHover.bind(0.5));
 
-//
- );
-
-nav.addEventListener('mouseout',handleHover.bind(1) //(e) =>{
- //handleHover(e,1);
-
-//}
-);
+nav.addEventListener('mouseout',handleHover.bind(1));
 
 //sticky navigation
 
 const header = document.querySelector('.header');
 
 const stickyNav= function(entries){
-  // entries.forEach(e =>{
     const [entry]=entries
     if(!entry.isIntersecting) nav.classList.add('sticky');
     else nav.classList.remove('sticky')
-  //})
 }
 
 const headerObs= new IntersectionObserver(
@@ -238,13 +195,6 @@ imgTargets.forEach(img => imgObs.observe(img));
  let curentSlide=0;
  const maxSlide = slide.length;
 
-//  const slider=document.querySelector('.slider');
-//  slider.style.transform='scale(0.3) translateX(-1200px)';
-
-//  slider.style.overflow='visible';
-
-//function
-
  const createDots = function(){
    slide.forEach((_, i) => {
     dotContainer.insertAdjacentHTML(
@@ -314,9 +264,7 @@ btnLeft.addEventListener('click', prevSlide);
 
 
 document.addEventListener('keydown',function(e){
-  console.log(e);
-
-  //abele variante sunt ok
+  console.log(e)
   if(e.key === 'ArrowLeft') prevSlide();
    e.key==='ArrowRight' && nextSlide();
 });
@@ -327,13 +275,8 @@ dotContainer.addEventListener('click',function(e){
     const {slide}=e.target.dataset;
     goToSlide(slide);
     activateDost(slide);
-  };
-
-
-
-
-});
-
+   };
+ });
 };
 sliderFunction();
 
